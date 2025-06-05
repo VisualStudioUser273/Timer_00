@@ -13,9 +13,12 @@ hour = StringVar()
 minute = StringVar()
 second = StringVar()
 hour.set("0")
-minute.set("0")
-second.set("0")              #setting title and bg color
+minute.set("0") 
+second.set("0")  
+
+                
 def countdown():
+    start_b.place_forget()
     total=int(hour_e.get())  *3600 + int(minute_e.get()) *60 + int(second_e.get())
     while total>-1:
 
@@ -26,6 +29,9 @@ def countdown():
         hour.set(hours)
         minute.set(mins)
         second.set(secs)
+        hour_e.config(state=DISABLED)
+        second_e.config(state=DISABLED)
+        minute_e.config(state=DISABLED)
         window.update()
         time.sleep(1)
         if total==0:
@@ -45,12 +51,9 @@ minute_e.place(x=200,y=200)
 second_e.place(x=250,y=200)
 start_b.place(x=300,y=200)
 
-
-
-
-
-
-
+def starttimer():
+       start_b.place_forget()
+       countdown
 
 
 
